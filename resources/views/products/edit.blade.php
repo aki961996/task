@@ -40,8 +40,23 @@
                 <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $product->detail }}</textarea>
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+        <strong> Product quantity:</strong>
+        <input type="number" value="{{ $product->quantity }}" class="text_color" min="0" name="quantity"
+        placeholder="Write A quantity">
+       
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Amount:</strong>
+                <input type="number" name="prize" class="form-control" value="{{ $product->prize }}"  placeholder="Amount">
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-          <button type="submit" class="btn btn-primary btn-sm mb-2 mt-2"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+          <button type="submit" class="btn btn-primary btn-sm mb-2 mt-2">Submit</button>
         </div>
     </div>
 </form>

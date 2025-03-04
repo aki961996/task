@@ -7,7 +7,7 @@
             <h2>Users Management</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-success mb-2" href="{{ route('users.create') }}"><i class="fa fa-plus"></i> Create New User</a>
+            <a class="btn btn-success mb-2" href="{{ route('users.create') }}">Create New User</a>
         </div>
     </div>
 </div>
@@ -39,13 +39,13 @@
           @endif
         </td>
         <td>
-             <a class="btn btn-info btn-sm" href="{{ route('users.show',$user->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-             <a class="btn btn-primary btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+             <a class="btn btn-info btn-sm" href="{{ route('users.show',$user->id) }}"> Show</a>
+             <a class="btn btn-primary btn-sm" href="{{ route('users.edit',$user->id) }}"> Edit</a>
               <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display:inline">
                   @csrf
                   @method('DELETE')
 
-                  <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
+                  <button type="submit" class="btn btn-danger btn-sm"> Delete</button>
               </form>
         </td>
     </tr>

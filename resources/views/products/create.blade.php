@@ -39,8 +39,40 @@
                 <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+        <strong> Product quantity:</strong>
+        <input type="number" class="text_color" min="0" name="quantity"
+        placeholder="Write A quantity">
+       
+        </div>
+        </div>
+                           
+                           
+                       
+        
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Amount:</strong>
+                <input type="number" name="prize" class="form-control" placeholder="Amount">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Role:</strong>
+                <select name="roles[]" class="form-control" multiple="multiple">
+                    @foreach ($roles as $value => $label)
+                        <option value="{{ $value }}">
+                            {{ $label }}
+                        </option>
+                     @endforeach
+                </select>
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"> Submit</button>
         </div>
     </div>
 </form>
