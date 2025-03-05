@@ -44,9 +44,9 @@ DB_PASSWORD=your_database_password
 Generate application key :php artisan key:generate
 
 
-Run database migrations and seed data
-php artisan migrate --seed
-php artisan db:seed --class=PermissionTableSeeder
+Run database migrations and seed data :php artisan migrate --seed,
+
+php artisan db:seed --class=PermissionTableSeeder,
 php artisan db:seed --class=CreateAdminUserSeeder
 
 Run the application : php artisan serve
