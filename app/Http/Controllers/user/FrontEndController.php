@@ -166,6 +166,11 @@ class FrontEndController extends Controller
         return redirect()->route('show_cart')->with('message', 'We Received your Order, We will connect with you soon');
 
     }
+    public function charge_stripe()
+    {
+        return view('frontEnd.products.stripe');
+    }
+
 
     public function checkout()
     {
@@ -182,8 +187,8 @@ class FrontEndController extends Controller
 
             $totalAmount += $itemTotal;
 
-            // Prevent exceeding Stripe's max limit
-            if ($totalAmount > 999999999) { // 9,99,99,999 paise = ₹9,999,999.99
+            
+            if ($totalAmount > 999999999) { 
                 return back()->with('error', 'Total order amount exceeds Stripe’s limit.');
             }
 
@@ -214,11 +219,7 @@ class FrontEndController extends Controller
 
 
 
-    public function charge_stripe()
-    {
-        return view('frontEnd.products.stripe');
-    }
-
+  
     public function success()
     {
         'hey its work';
