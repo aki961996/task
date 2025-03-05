@@ -172,50 +172,41 @@ class FrontEndController extends Controller
     }
 
 
-    public function checkout()
+    public function  checkout()
     {
+        // dd($totalPrize);
         $user = Auth::user();
         $userId = $user->id;
         $cart = Cart::getCartData($userId);
-
         $line_items = [];
-        $totalAmount = 0;
-
         foreach ($cart as $dataa) {
-            $itemPrice = intval($dataa['prize'] * 100);
-            $itemTotal = $itemPrice * $dataa['quantity'];
-
-            $totalAmount += $itemTotal;
-
-            
-            if ($totalAmount > 999999999) { 
-                return back()->with('error', 'Total order amount exceeds Stripe’s limit.');
-            }
-
             $line_items[] = [
                 'price_data' => [
                     'currency' => 'inr',
                     'product_data' => [
                         'name' => $dataa['product_name'],
                     ],
-                    'unit_amount' => $itemPrice, // Must be an integer (paise)
+                    'unit_amount' => $dataa['prize'] * 100,
                 ],
                 'quantity' => $dataa['quantity'],
             ];
         }
 
-        \Stripe\Stripe::setApiKey(config(key: 'stripe.sk'));
 
+        \Stripe\Stripe::setApiKey(config(key: 'stripe.sk'));
         $session = \Stripe\Checkout\Session::create([
-            'payment_method_types' => ['card'],
+
             'line_items' => $line_items,
             'mode' => 'payment',
             'success_url' => route('success'),
             'cancel_url' => route('charge_stripe'),
+
         ]);
+
 
         return redirect()->away($session->url);
     }
+
 
 
 
