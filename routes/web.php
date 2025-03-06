@@ -46,6 +46,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::get('export',[UserController::class,'export'])->name('users.export');
+    Route::get('orders/pdf',[UserController::class,'pdf'])->name('users.pdf');
+   
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
 });

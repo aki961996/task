@@ -12,6 +12,9 @@
         <div class="pull-right">
             <a class="btn btn-info mb-2" href="{{ route('users.export') }}">Export</a>
         </div>
+        <div class="pull-right">
+            <a class="btn btn-success mb-2" href="{{ route('users.pdf') }}">Pdf</a>
+        </div>
     </div>
 </div>
 

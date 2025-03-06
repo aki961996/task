@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
@@ -14,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use Rap2hpoutre\FastExcel\FastExcel;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -121,10 +123,21 @@ class UserController extends Controller
                 'email' => $user->email,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
-                // 'user_type' is excluded
+               
             ];
         });
         // Export selected fields
         return (new FastExcel($users))->download('users.xlsx');
     }
+    public function pdf() {
+        $orders = Order::all();
+        dd($orders);
+    
+        // Pass data as an array
+        $pdf = Pdf::loadView('order.invoice', ['orders' => $orders]);
+    
+        return $pdf->download('invoice.pdf');
+    }
+
+        
 }
