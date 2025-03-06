@@ -9,6 +9,9 @@
         <div class="pull-right">
             <a class="btn btn-success mb-2" href="{{ route('users.create') }}">Create New User</a>
         </div>
+        <div class="pull-right">
+            <a class="btn btn-info mb-2" href="{{ route('users.export') }}">Export</a>
+        </div>
     </div>
 </div>
 
