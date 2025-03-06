@@ -8,10 +8,11 @@
             <th>Order ID</th>
             <th>Customer Name</th>
 
-            <th>Customer Name</th>
+           
             <th>Product Name</th>
             <th>Quantity</th>
             <th>Payment Status</th>
+            <th>Delivary Status</th>
             <th>Total Price</th>
             <th>Date</th>
         </tr>
