@@ -111,8 +111,20 @@ class UserController extends Controller
     // new methode
     public function export()
     {
-        $users = User::all();
-        // Export all users
-        return (new FastExcel(User::all()))->download('file.xlsx');
+        // $users = User::all();
+        // // Export all users
+        // return (new FastExcel(User::all()))->download('file.xlsx');
+        $users = User::all()->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
+                // 'user_type' is excluded
+            ];
+        });
+        // Export selected fields
+        return (new FastExcel($users))->download('users.xlsx');
     }
 }
