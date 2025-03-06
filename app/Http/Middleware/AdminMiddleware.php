@@ -16,10 +16,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request); // Allow access
+        // Check if user is logged in and has role "admin"
+        if (Auth::check() && Auth::user()->role === 'Admin') {
+            return $next($request);
         }
 
-        abort(403, 'Unauthorized access'); // Restrict access
+        // Redirect non-admin users (Optional: You can change this to abort(403))
+        return redirect('/')->with('error', 'Unauthorized access');
     }
 }

@@ -15,7 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
             'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class
+            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+             // Role-based access middleware
+        'admin' => \App\Http\Middleware\AdminMiddleware::class, // Protects admin routes
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
