@@ -53,6 +53,12 @@ php artisan db:seed --class=CreateAdminUserSeeder
 Run the application : php artisan serve
 
 then : http://127.0.0.1:8000/login
+email : admin@gmail.com,
+password : password
+
+          
+            
+      
 
 
 API Authentication
