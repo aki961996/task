@@ -44,14 +44,25 @@
             </div> --}}
     {{-- end pagination --}}
     @endif
-
-    <a class="btn btn-primary" href="{{ route('index') }}">Continue Shopping</a>
-    <td>
+    <table class="table" >
+        <tr>
+        <td>
+        <a class="btn btn-primary" href="{{ route('index') }}">Continue Shopping</a>
         <a href="{{route('remove_cart',encrypt($item->id))}}" class="btn btn-outline-danger"
             onclick="return confirm('Are you sure to remove this product?')">Remove
             Product
         </a>
+        <a class="btn btn-outline-success " href="{{ route('users.pdf') }}">Pdf</a>
+        
     </td>
+    
+        </tr>
+    </table>
+
+  
+  
+   
+    
 
     <div>
 
