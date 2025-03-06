@@ -9,6 +9,7 @@ JWT Authentication for API authentication.
 Admin Dashboard
 web api
 Authentication 
+View all registered users.(export in excel sheet)
 Manage products (Add, Edit, Delete, List).
 View all orders placed by users.
 CRUD operations for managing users, roles, and permissions.
