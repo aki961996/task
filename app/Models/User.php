@@ -24,6 +24,7 @@ class User extends Authenticatable  implements JWTSubject
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -62,5 +63,9 @@ class User extends Authenticatable  implements JWTSubject
     public function getCreatedAtAttribute($value)
     {
         return \Carbon\Carbon::parse($value)->format('d-m-Y'); // Change to your desired format
+    }
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }

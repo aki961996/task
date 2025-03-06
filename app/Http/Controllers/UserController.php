@@ -132,7 +132,8 @@ class UserController extends Controller
     public function pdf() {
         $orders = Order::all();
        
-      
+    
+        // Pass data as an array
         $pdf = Pdf::loadView('order.invoice', ['orders' => $orders]);
     
         return $pdf->download('invoice.pdf');

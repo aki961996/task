@@ -14,12 +14,12 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request); // Allow admin access
+            return $next($request); // Allow access
         }
 
-        return response()->json(['message' => 'Access Denied'], 403);
+        abort(403, 'Unauthorized access'); // Restrict access
     }
 }
