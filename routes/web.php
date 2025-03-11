@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -37,7 +38,7 @@ Route::controller(FrontEndController::class)->group(function () {
 
     Route::get('/success',  'success')->name('success');
     //stripe api end
-  
+
 });
 
 Auth::routes();
@@ -58,9 +59,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('roles', RoleController::class);
     Route::get('export', [UserController::class, 'export'])->name('users.export');
     // Route::get('orders/pdf', [UserController::class, 'pdf'])->name('users.pdf');
-
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::get('order', [OrderController::class, 'index'])->name('orders.index');
+    //delivered
+    Route::get('/delivered{id}', [OrderController::class, 'delivered'])->name('delivered');
+
+    
 });
-
-
