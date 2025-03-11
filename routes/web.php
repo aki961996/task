@@ -43,7 +43,7 @@ Route::controller(FrontEndController::class)->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/redirect', [HomeController::class, 'index'])->name('home');
 Route::get('orders/pdf', [UserController::class, 'pdf'])->name('users.pdf');
 
 // Route::group(['middleware' => ['auth']], function () {
@@ -61,7 +61,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // Route::get('orders/pdf', [UserController::class, 'pdf'])->name('users.pdf');
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
-    Route::get('order', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     //delivered
     Route::get('/delivered{id}', [OrderController::class, 'delivered'])->name('delivered');
 

@@ -6,15 +6,16 @@
         <div class="pull-left">
             <h2>Users Management</h2>
         </div>
-        <div class="pull-right">
+        <div class="row mx-0 ">
+            <div class="col-12 d-flex  gap-2 flex-wrap">
             <a class="btn btn-success mb-2" href="{{ route('users.create') }}">Create New User</a>
+            <a class="btn btn-warning mb-2" href="{{ route('users.export') }}">Export</a>
+            <a class="btn btn-info mb-2" href="{{ route('users.pdf') }}">Pdf</a>
+
+            </div>
+
         </div>
-        <div class="pull-right">
-            <a class="btn btn-info mb-2" href="{{ route('users.export') }}">Export</a>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-success mb-2" href="{{ route('users.pdf') }}">Pdf</a>
-        </div>
+        
     </div>
 </div>
 
